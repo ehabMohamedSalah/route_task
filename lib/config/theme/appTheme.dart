@@ -15,6 +15,11 @@ class AppTheme{
       ),
 
       textTheme: TextTheme(
+        bodySmall: TextStyle(
+            color: Color(0xff06004F).withOpacity(0.6),
+            fontWeight: FontWeight.w300,
+            fontSize: 16.sp
+        ) ,
         labelMedium: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.w300,
