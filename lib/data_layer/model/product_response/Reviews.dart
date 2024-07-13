@@ -19,12 +19,12 @@ class Reviews {
     reviewerName = json['reviewerName'];
     reviewerEmail = json['reviewerEmail'];
   }
-  int? rating;
+  num? rating;
   String? comment;
   String? date;
   String? reviewerName;
   String? reviewerEmail;
-Reviews copyWith({  int? rating,
+Reviews copyWith({  num? rating,
   String? comment,
   String? date,
   String? reviewerName,

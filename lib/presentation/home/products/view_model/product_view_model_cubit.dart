@@ -6,7 +6,7 @@ import '../../../../Domain/entity/product_entity.dart';
 import '../../../../Domain/usecase/product_usecase.dart';
 
 part 'product_view_model_state.dart';
-
+@injectable
 class ProductViewModel extends Cubit<ProductViewModelState> {
   ProductUseCase productUseCase;
   @factoryMethod
