@@ -23,15 +23,17 @@ class ProductScreen extends StatelessWidget {
             CustomField(),
         Expanded(
           child: GridView.builder(
-
-            scrollDirection: Axis.vertical,
+           scrollDirection: Axis.vertical,
             itemBuilder: (context, index) => ProductWidget( ),
-            itemCount: 2,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 16.h,
-            ),
-          ),
+
+           itemCount: 8,
+           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+             crossAxisCount: 2,
+             crossAxisSpacing: 16.h,
+             childAspectRatio: 3 / 4,
+
+           ),
+                    ),
         ),
 
       ],

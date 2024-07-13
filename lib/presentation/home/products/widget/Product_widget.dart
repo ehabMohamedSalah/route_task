@@ -1,22 +1,21 @@
-import 'dart:ui';
-
 import 'package:cached_network_image/cached_network_image.dart';
- import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:route_task/core/utils/assets_manager.dart';
+
+import '../../../../Domain/entity/product_entity.dart';
 
 class ProductWidget extends StatelessWidget {
-   @override
+  ProductEntity product;
+  ProductWidget(this.product);
+  @override
   Widget build(BuildContext context) {
     return Container(
       width: 191.w,
-      height: 128.h,
       decoration: BoxDecoration(
         border: Border.all(width: 2.w, color: Color(0xff004182)),
         borderRadius: BorderRadius.all(Radius.circular(15.sp)),
@@ -25,16 +24,22 @@ class ProductWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
-            alignment: Alignment.topRight,
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(15.sp),
                     topLeft: Radius.circular(15.sp)),
-                child: Image.asset("assets/images/productDumy.png"),
+                child: CachedNetworkImage(
+                  width: 191.w,
+                  height: 128.h,
+                  fit: BoxFit.cover,
+                  imageUrl: product.images?[0] ?? "" ,
+                  placeholder: (context, url) => CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
               ),
               SvgPicture.asset(
-                assetManagerr.love,
+                "assets/images/like.svg",
                 height: 30.h,
                 width: 30.w,
               ),
@@ -44,7 +49,7 @@ class ProductWidget extends StatelessWidget {
             height: 8.h,
           ),
           Text(
-            "Nike Air Jordon Nike shoes flexible for wo",
+            "${product.title ?? ""}\n",
             maxLines: 2,
             style: TextStyle(
               fontWeight: FontWeight.w400,
@@ -55,15 +60,20 @@ class ProductWidget extends StatelessWidget {
           SizedBox(
             height: 8.h,
           ),
-            Row(
+          Row(
             children: [
-              Text("EGP 1500"),
-              SizedBox(
-                width: 16.w,
+              Text(
+                "EGP ${getPriceAfterSale().toStringAsFixed(2)}",
+                overflow: TextOverflow.clip,
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+              const SizedBox(
+                width: 16,
               ),
               Text(
-                "800 EGP",
-                style: TextStyle(decoration: TextDecoration.lineThrough),
+                product.price?.toStringAsFixed(2) ?? "",
+                overflow: TextOverflow.clip,
+                style: Theme.of(context).textTheme.labelSmall,
               )
             ],
           ),
@@ -71,15 +81,21 @@ class ProductWidget extends StatelessWidget {
             height: 8.h,
           ),
           Row(children: [
-            Text("Review(4.6)"),
-            SvgPicture.asset(assetManagerr.star,height: 30.h,width: 30.w,),
-
+            Text("Review(${product.rating})"),
+            SvgPicture.asset("assets/images/star_.svg"),
             Spacer(),
-            SvgPicture.asset(assetManagerr.plus,height: 30.h,width: 30.w,),
-
+    SvgPicture.asset(
+    "assets/images/plus.svg",
+    height: 30.h,
+    width: 30.w,
+    ),
            ]),
         ],
       ),
     );
+  }
+  double getPriceAfterSale() {
+    return product.price! *
+        (1 - (product.discountPercentage! / 100));
   }
 }
