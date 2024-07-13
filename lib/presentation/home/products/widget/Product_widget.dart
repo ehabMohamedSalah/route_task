@@ -65,24 +65,25 @@ class ProductWidget extends StatelessWidget {
             SizedBox(
               height: 2.h,
             ),
-            Row(
-              children: [
-                Text(
-                  "EGP ${getPriceAfterSale().toStringAsFixed(2)}",
-                  overflow: TextOverflow.clip,
-                  style: Theme.of(context).textTheme.titleSmall,
-                ),
-                const SizedBox(
-                  width: 16,
-                ),
-                Text(
-
-                  product.price?.toStringAsFixed(2) ?? "",
-                  overflow: TextOverflow.clip,
-
-                  style: Theme.of(context).textTheme.bodyMedium,
-                )
-              ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Text(
+                    "EGP ${getPriceAfterSale().toStringAsFixed(2)}",
+                    overflow: TextOverflow.clip,
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  Text(
+                    product.price?.toStringAsFixed(2) ?? "",
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  )
+                ],
+              ),
             ),
             SizedBox(
               height: 2.h,
