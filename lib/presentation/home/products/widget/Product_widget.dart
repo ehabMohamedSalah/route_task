@@ -88,7 +88,8 @@ class ProductWidget extends StatelessWidget {
               height: 2.h,
             ),
             Row(children: [
-              Text("Review(${product.rating})",style: Theme.of(context).textTheme.labelLarge,),
+              Text("Review (${product.rating})",style: Theme.of(context).textTheme.labelLarge?.copyWith(fontSize: 14),),
+              SizedBox(width: 3,),
               SvgPicture.asset("assets/images/star_.svg"),
               Spacer(),
             SvgPicture.asset(

@@ -41,11 +41,12 @@ class AppTheme{
 
         ),
         bodyMedium: TextStyle(
+          overflow:TextOverflow.ellipsis ,
             decoration: TextDecoration.lineThrough,
-
+              decorationColor: ColorManager.primaryColor.withOpacity(0.5),
             fontWeight: FontWeight.w600,
-            fontSize: 20.sp,
-            color: ColorManager.primaryColor
+            fontSize: 16.sp,
+            color: ColorManager.primaryColor.withOpacity(0.5)
         ),
 
       )
