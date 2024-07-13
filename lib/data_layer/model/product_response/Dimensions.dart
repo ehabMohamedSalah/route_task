@@ -13,12 +13,12 @@ class Dimensions {
     height = json['height'];
     depth = json['depth'];
   }
-  double? width;
-  double? height;
-  double? depth;
+  num? width;
+  num? height;
+  num? depth;
 Dimensions copyWith({  double? width,
-  double? height,
-  double? depth,
+  num? height,
+  num? depth,
 }) => Dimensions(  width: width ?? this.width,
   height: height ?? this.height,
   depth: depth ?? this.depth,

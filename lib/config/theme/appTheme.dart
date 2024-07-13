@@ -21,11 +21,15 @@ class AppTheme{
             fontSize: 16.sp
         ) ,
         labelMedium: TextStyle(
+
             color: Colors.black,
-            fontWeight: FontWeight.w300,
-            fontSize: 18.sp
+            fontWeight: FontWeight.w500,
+            fontSize: 14.sp,
+            overflow: TextOverflow.ellipsis,
+
         ),
         labelSmall: TextStyle(
+
             fontWeight: FontWeight.w600,
             fontSize: 20.sp,
             color: ColorManager.primaryColor
@@ -36,6 +40,14 @@ class AppTheme{
           color: Color(0xff06004F),
 
         ),
+        bodyMedium: TextStyle(
+            decoration: TextDecoration.lineThrough,
+
+            fontWeight: FontWeight.w600,
+            fontSize: 20.sp,
+            color: ColorManager.primaryColor
+        ),
+
       )
   );
 }
