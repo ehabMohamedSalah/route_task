@@ -1,3 +1,5 @@
+![route_task](https://github.com/user-attachments/assets/02bddc24-704b-4a1b-8aa9-a6126eb8ddce)
+
 Project Overview
 This Flutter application showcases a list of products retrieved from an API, leveraging clean architecture and various design patterns for enhanced scalability and maintainability. The UI is designed to be adaptive, ensuring a seamless experience across multiple screen sizes and orientations.
 Features
