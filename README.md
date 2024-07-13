@@ -1,16 +1,19 @@
-# route_task
+Project Overview:
+This Flutter application showcases a list of products retrieved from an API, leveraging clean architecture and various design patterns for enhanced scalability and maintainability. The UI is designed to be adaptive, ensuring a seamless experience across multiple screen sizes and orientations.
 
-A new Flutter project.
+Features:
+Clean Architecture: Ensures clear separation of concerns, facilitating testing and maintenance.
+MVVM Pattern: Separates UI logic from business logic for better code management.
+Repository Pattern: Abstracts data sources to provide a consistent API for data access.
+Dependency Injection: Efficiently manages dependencies using a DI framework.
+Adaptive UI: Offers a responsive design that adapts to different screen sizes and orientations.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Technologies Used:
+Flutter: For building the UI.
+Dio: HTTP client for API requests.
+Bloc: State management using the BLoC pattern.
+GetIt: Dependency injection framework.
+Getting Started
+Prerequisites
+Flutter SDK
+Dart SDK
